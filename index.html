@@ -783,6 +783,7 @@ function appendMessage(role, text) {
 }
 
 function formatMessage(text) {
+  text = text.trim();
   const lines = text.split('\n');
   let html = '';
   let i = 0;
