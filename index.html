@@ -266,7 +266,7 @@
     width: 220px;
     height: 36px;
     margin-bottom: 14px;
-    opacity: 0.5;
+    opacity: 1;
   }
 
   .welcome h1 {
@@ -358,7 +358,7 @@
   }
 
   .msg.bot .msg-avatar {
-    background: var(--crimson);
+    background: var(--teal);
     color: white;
     font-family: 'Playfair Display', serif;
     font-size: 13px;
@@ -368,7 +368,7 @@
     width: 44px;
     height: 52px;
     border-radius: 10px;
-    border: 2px solid var(--crimson);
+    border: 2px solid var(--teal);
   }
 
   .msg.bot .msg-avatar img {
@@ -383,11 +383,12 @@
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 0.05em;
-    background: var(--crimson);
+    background: var(--teal);
     width: 100%;
     padding: 1px 0;
     display: block;
     color: white;
+    text-align: center;
   }
 
   .msg-bubble {
@@ -525,8 +526,8 @@
 
   /* ── ECG SVG ── */
   .ecg-line {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
     animation: draw-ecg 3s ease forwards;
   }
 
@@ -635,7 +636,7 @@
         <p>Get answers grounded in three decades of Dr. Jagdish Hiremath's documented expertise in preventive cardiology, lifestyle medicine, and cardiac care.</p>
         <svg class="welcome-ecg" viewBox="0 0 280 50" style="margin-bottom:28px;margin-top:8px;">
           <polyline class="ecg-line" points="0,25 40,25 50,25 55,5 60,45 65,25 80,25 90,25 95,10 100,40 105,25 120,25 160,25 165,8 170,42 175,25 200,25 210,25 215,12 220,38 225,25 280,25"
-            stroke="#45BFDC" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            stroke="#45BFDC" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <div class="starter-grid">
           <button class="starter-btn" onclick="setQuestion('How can I prevent a heart attack through diet and exercise?')"><span class="q-arrow">→</span>How to prevent a heart attack?</button>
@@ -682,7 +683,7 @@ function resetChat() {
     <p>Get answers grounded in three decades of Dr. Jagdish Hiremath's documented expertise in preventive cardiology, lifestyle medicine, and cardiac care.</p>
     <svg class="welcome-ecg" viewBox="0 0 280 50" style="margin-bottom:28px;margin-top:8px;">
       <polyline class="ecg-line" points="0,25 40,25 50,25 55,5 60,45 65,25 80,25 90,25 95,10 100,40 105,25 120,25 160,25 165,8 170,42 175,25 200,25 210,25 215,12 220,38 225,25 280,25"
-        stroke="#45BFDC" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        stroke="#45BFDC" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
     <div class="starter-grid">
       <button class="starter-btn" onclick="setQuestion('How can I prevent a heart attack through diet and exercise?')"><span class="q-arrow">&#8594;</span>How to prevent a heart attack?</button>
@@ -734,7 +735,7 @@ function appendMessage(role, text) {
   if (role === 'user') {
     avatar.textContent = 'You';
   } else {
-    avatar.innerHTML = '<img src="' + DR_PHOTO + '" alt="Dr. Hiremath"><span>JH</span>';
+    avatar.innerHTML = '<img src="' + DR_PHOTO + '" alt="Dr. Hiremath"><span>JSH</span>';
   }
 
   const bubble = document.createElement('div');
@@ -767,8 +768,8 @@ function showTyping() {
 
   const avatar = document.createElement('div');
   avatar.className = 'msg-avatar';
-  avatar.style.cssText = 'background:#8B1A1A;color:white;width:44px;height:52px;border-radius:10px;border:2px solid #8B1A1A;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden';
-  avatar.innerHTML = '<img src="' + DR_PHOTO + '" style="width:44px;height:38px;object-fit:cover;object-position:center top;display:block" alt="Dr. Hiremath"><span style="font-size:9px;font-weight:700;letter-spacing:0.05em;background:#8B1A1A;width:100%;text-align:center;padding:1px 0;display:block;color:white">JH</span>';
+  avatar.style.cssText = 'background:var(--teal);color:white;width:44px;height:52px;border-radius:10px;border:2px solid var(--teal);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden';
+  avatar.innerHTML = '<img src="' + DR_PHOTO + '" style="width:44px;height:38px;object-fit:cover;object-position:center top;display:block" alt="Dr. Hiremath"><span style="font-size:9px;font-weight:700;letter-spacing:0.05em;background:var(--teal);width:100%;text-align:center;padding:1px 0;display:block;color:white">JSH</span>';
 
   const dots = document.createElement('div');
   dots.className = 'typing-dots';
