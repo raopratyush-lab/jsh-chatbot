@@ -9,7 +9,7 @@ exports.handler = async (event) => {
   try {
     const { model, max_tokens, messages } = JSON.parse(event.body);
 
-    const knowledgePath = path.join(__dirname, 'context/knowledge.md');
+    const knowledgePath = path.join(process.cwd(), 'context/knowledge.md');
     const systemPrompt = fs.readFileSync(knowledgePath, 'utf8');
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {
