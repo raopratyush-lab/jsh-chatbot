@@ -195,36 +195,989 @@ RESPONSE RULES — CRITICAL:
 6. Where relevant, acknowledge the Indian dietary and lifestyle context — do not give generic Western advice.
 7. You may say "Dr. Hiremath says..." or "According to Dr. Hiremath..." to attribute positions clearly.
 8. Keep responses focused and readable — use short paragraphs or a brief list where clarity demands it.
-9. Always end with a reminder that this is educational content and not a substitute for a medical consultation.`;
+9. Always end with a reminder that this is educational content and not a substitute for a medical consultation.
 
-// ── Reset ─────────────────────────────────────────────────────────────────────
-function resetChat() {
-  messages = [];
-  isLoading = false;
-  document.getElementById('sendBtn').disabled = false;
-  document.getElementById('question').value = '';
-  document.getElementById('question').style.height = 'auto';
+---
+<!-- Source: Heart Health_ The Ideal Parameters.mp4 -->
+# NEW KNOWLEDGE TO ADD
 
-  const area = document.getElementById('chatArea');
-  const welcome = document.createElement('div');
-  welcome.className = 'welcome';
-  welcome.id = 'welcome';
-  welcome.innerHTML = `
-    <div class="welcome-photo-wrap">
-      <img class="welcome-photo" src="data:image/jpeg;base64,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" alt="Dr. Jagdish Hiremath">
-    </div>
-    <h1>Ask <span style="color:#8B1A1A">Dr. Jagdish Hiremath</span></h1>
-    <p>Get answers grounded in three decades of Dr. Jagdish Hiremath's documented expertise in preventive cardiology, lifestyle medicine, and cardiac care.</p>
-    <svg class="welcome-ecg" viewBox="0 0 280 50" style="margin-bottom:28px;margin-top:8px;">
-      <polyline class="ecg-line" points="0,25 40,25 50,25 55,5 60,45 65,25 80,25 90,25 95,10 100,40 105,25 120,25 160,25 165,8 170,42 175,25 200,25 210,25 215,12 220,38 225,25 280,25"
-        stroke="#8B1A1A" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <div class="starter-grid">
-      <button class="starter-btn" onclick="setQuestion('How can I prevent a heart attack through diet and exercise?')"><span class="q-arrow">&#8594;</span>How to prevent a heart attack?</button>
-      <button class="starter-btn" onclick="setQuestion('What does Dr. Hiremath say about cholesterol levels?')"><span class="q-arrow">&#8594;</span>What should my cholesterol be?</button>
-      <button class="starter-btn" onclick="setQuestion('Is too much exercise dangerous for the heart?')"><span class="q-arrow">&#8594;</span>Can exercise be too much?</button>
-      <button class="starter-btn" onclick="setQuestion('What are the early warning signs of heart disease I should not ignore?')"><span class="q-arrow">&#8594;</span>Early signs I should not ignore</button>
-    </div>
-  `;
-  area.innerHTML = '';
-  area.appendChild(welcome);
+## IDEAL HEART HEALTH PARAMETERS
+
+**General Philosophy:**
+- "Allopathic medicine is heavily dependent on investigations and parameters"
+- After extensive scientific research and epidemiological studies, there is now consensus on ideal parameters for cardiovascular health
+- Atherosclerosis is the commonest disease affecting the heart worldwide
+- LDL particles get deposited in medium-sized arteries of heart, brain, kidneys "like rust building up inside metallic pipes"
+- Atherosclerosis is a slow process going on for years; can be prevented, halted, and to some extent reversed by meticulously managing parameters
+
+**Core Parameters for Adults Above 30 Years (as of early 2025):**
+- Weight
+- Blood pressure
+- Heart rate/pulse rate
+- Blood sugars
+- LDL (bad cholesterol)
+- Serum creatinine
+- Protein in urine (kidney function)
+- Vitamin B12 and Vitamin D3 levels
+- Zero tobacco and almost no alcohol
+- Decent diet, exercise, stress management routine
+- Medication adherence >90% of the time
+
+**Optional/Supporting Parameters:**
+- CRP-high sensitivity
+- Thyroid
+- Uric acid
+- Liver function
+
+## WEIGHT & BMI
+
+- **Ideal weight formula:** height in inches = weight in kilograms
+  - Example: 65-inch tall man should weigh 65 kg
+  - Women: 5 kg less than men for same height
+  - 5–10% leeway on either side based on body frame
+- **BMI target:** less than 23 (weight in kg divided by square of height in meters)
+- If overweight or obese, losing just 10–15% of weight brings "remarkable medical benefits"
+- Trying to reach ideal weight for obese individuals is "a utopic dream" — focus on 10–15% reduction first
+
+## BLOOD PRESSURE
+
+- **Target for all adults at all ages:** systolic BP below 130 mmHg without medication
+- "All our organs are designed to last till the age of 120 years for a systolic blood pressure of 120 mmHg"
+- Anything persistently above 140 systolic definitely needs treatment
+- Elevated BP between 130–140 mmHg "should not be taken lightly"
+- **Diastolic BP:** 80 is ideal, but of lesser importance than systolic
+
+## HEART RATE / PULSE RATE
+
+- Heart rate and pulse rate are identical except in a few medical conditions
+- Can be monitored via: smartwatch, BP apparatus, pulse oximeter
+- **Ideal resting pulse rate:** 70–80 per minute (in quiet body and mind state)
+
+## BLOOD SUGAR
+
+- **Best measurement:** continuous glucose monitoring device (CGM) — "for the ideal world"
+- **Practical parameter:** HbA1c (3-month average)
+  - Non-diabetics: well below 6
+  - Good diabetic control: between 6 and 6.5
+
+## CHOLESTEROL / LIPID PROFILE
+
+- Can now be done in non-fasting state
+- "The earliest stipulation of 14 hours fasting blood sample is no longer necessary"
+- Non-fasting blood represents LDL cholesterol accurately
+- **LDL targets:**
+  - Normal adults: less than 100 mg%
+  - Individuals with prior heart attack or stroke: 55 or below, or as low as 30 based on risk
+- HDL is "no longer considered the so-called good cholesterol"
+- Triglycerides may have some value but not as emphatic as LDL
+
+## SCREENING & CHECK-UP SCHEDULE
+
+- **First check at age 10:** physical check for BP in all four limbs, blood sugar, cholesterol
+  - Purpose: rule out abnormalities like diabetes and high cholesterol present from birth
+- If normal at age 10: next check at age 30, then 40, then every 3 years
+
+## STRESS MANAGEMENT
+
+- Chronic mental stress is one of the factors responsible for atherosclerosis
+- "Unfortunately it's not tangible. There is no investigation to measure stress"
+- "In modern day existence chronic stress should be assumed to be existing"
+- **Coping strategies:** yoga, meditation, hobbies, social connects, emotional core group must be introduced
+
+## LIFESTYLE AS PARAMETER
+
+- "Common sense diet pattern, food for body rather than desire, along with moderate exercise needs to be an ongoing background activity"
+- "For external cleanliness we commence taking a bath in childhood and follow it up through the life without any much motivation. Health important matters like heart health deserve a steady diet exercise routine which would be compared to a bath for more than 80% of the times"
+- Good social connects, adequate good quality sleep, hobbies also help heart health
+
+## PRACTICAL ADVICE
+
+- "Make your personal list of ideal parameters and stick it up on your pinup wall electronically or actually and keep deriving motivation from it"
+- Spread awareness: "Starting about these parameters in friends, family groups, social media will help percolating this knowledge in majority strata of the society especially in the young"
+- "This many suffer disease the giant killer can be kept at bay remarkably well by achieving the targets year after year"
+
+---
+<!-- Source: Heart Health_ The Ideal Parameters.mp4 -->
+# NEW KNOWLEDGE TO ADD
+
+## ATHEROSCLEROSIS & HEART DISEASE PATHOLOGY:
+- Atherosclerosis is the commonest disease affecting the heart worldwide
+- "Like rust building up inside metallic pipes" — atherosclerosis is a slow process going on for years
+- LDL particles get deposited in medium-sized arteries of heart, brain, kidneys
+- Buildup eventually clogs arteries badly enough to cause ischemia — deprivation of blood delivery to organs
+- Coronary arteries are the most commonly affected
+- The process can be prevented, halted, and to some extent reversed by meticulously managing parameters
+
+## IDEAL HEART HEALTH PARAMETERS (2025):
+- Parameters are based on: weight, blood pressure, heart rate, blood sugars, LDL cholesterol, serum creatinine, protein in urine, vitamin B12, vitamin D3
+- Zero tobacco and almost no alcohol are essential targets
+- CRP-high sensitivity, thyroid, uric acid, liver function deserve mention as optional parameters
+- First physical check should be at age 10: blood pressure in all four limbs, blood sugar, cholesterol
+- If normal at age 10, next check at age 30, then 40, then every 3 years thereafter
+
+## WEIGHT:
+- Ideal weight formula: height in inches = weight in kilograms (e.g., 65-inch tall man should weigh 65 kg)
+- Women should be about 5 kg less than men for same height
+- 5–10% leeway on either side based on body frame
+- BMI target: less than 23 (weight in kg ÷ height in meters squared)
+- If overweight/obese, losing 10–15% of weight brings remarkable medical benefits
+- "Trying to reach ideal weight is a utopic dream" — focus on achievable loss
+
+## BLOOD PRESSURE:
+- All adults at all ages should have systolic BP below 130 mmHg without medication
+- "All our organs are designed to last till age 120 for a systolic BP of 120 mmHg"
+- Anything above 140 systolic persistently needs treatment
+- Elevated BP between 130–140 mmHg should not be taken lightly
+- Diastolic BP is of lesser importance, but 80 is ideal
+
+## HEART RATE:
+- Except for few medical conditions, heart rate and pulse rate are identical
+- Can be monitored via smartwatch, BP apparatus, or pulse oximeter
+- Resting pulse rate (quiet body and mind): 70–80 per minute is ideal
+
+## BLOOD SUGAR:
+- Continuous glucose monitoring (CGM) device is ideal but for "the ideal world"
+- HbA1c (three-month average) is the practical parameter to follow
+- All non-diabetics should be well below 6
+- Good diabetic control: HbA1c between 6 and 6.5
+
+## CHOLESTEROL (ADDITIONAL):
+- Lipid profile can now be done in non-fasting state
+- The 14-hour fasting requirement is no longer necessary
+- Non-fasting blood represents LDL cholesterol accurately
+- Normal adults: LDL less than 100 mg%
+- Those who have suffered heart attack or stroke: LDL 55 or below, may be as low as 30 based on risk
+- HDL is no longer considered the so-called "good cholesterol"
+- Triglycerides may have some value but not as emphatic as LDL
+
+## KIDNEY PARAMETERS:
+- Protein in urine and serum creatinine are supporting parameters
+- Not as emphatic as other parameters but need to be in order
+
+## LIFESTYLE & ADHERENCE:
+- "Food for body rather than desire" — common sense diet pattern
+- Health routines should be like bathing: commenced in childhood and followed through life without much motivation needed
+- Diet and exercise routine should be followed more than 80% of the time
+- Good social connections, adequate good quality sleep, and hobbies help heart health
+
+## STRESS MANAGEMENT:
+- Chronic mental stress is a factor responsible for atherosclerosis
+- "Unfortunately it's not tangible. There is no investigation to measure stress"
+- In modern day existence, chronic stress should be assumed to be existing
+- Must introduce: yoga, meditation, hobbies, social connects, emotional core group
+- Stress is an "abstract risk factor" that must be managed
+
+## PREVENTIVE STRATEGY:
+- Most healthy individuals can achieve ideal parameters by diet, exercise, adequate rest, and periodic checks
+- Those with known atherosclerosis differ only in LDL targets — medication will be in the fore
+- "Make your personal list of ideal parameters and stick it up on your pinup wall — electronically or actually — and keep deriving motivation from it"
+- Spread knowledge of parameters in friends, family groups, social media to help percolate into majority strata of society, especially the young
+- "This many suffer disease, the giant killer, can be kept at bay remarkably well by achieving the targets year after year"
+
+---
+<!-- Source: vidssave.com Myocardium of Heart - The Heart Muscles 360P.mp4 -->
+# NEW KNOWLEDGE TO ADD
+
+## HEART ANATOMY & FUNCTION:
+
+**The Myocardium (Heart Muscle):**
+- Human heart weighs 400 grams and is the size of a human fist
+- Situated in a secure, bony rib cage
+- Almost 80% of the myocardium is in the left lower compartment (left ventricle)
+- The left ventricle is responsible for pumping blood to the entire body — that's why it's made of such strong muscle
+- Both upper compartments (atria) hardly have any myocardium
+- The right ventricle has some myocardium, but the entire muscle mass is on the left side
+- Despite being a small organ, the heart receives about 9% of the entire body's blood flow — indicating the importance of the myocardium
+
+**How the Heart Muscle Works:**
+- Contraction of the myocardium is "a highly complex affair" — not just in-and-out movement
+- It's a rotatory movement, a twisting movement that builds up from the apex of the heart to the base
+- Muscle fibers are wound in such a way that each contraction pushes blood into the aorta through the aortic valve
+- The myocardium gets glucose, oxygen, and other nutrients from the blood supply through coronary arteries
+- Heart rate: 70 contractions per minute = 4,200/hour, 100,800/day, 36.8 million/year
+- "In a lifespan of 75 years, the number has so many zeros it goes out of the range of the calculator"
+
+**Myocardium vs. Skeletal Muscle:**
+- Skeletal muscles (arms, legs) are fatigable — they get tired and painful after repeated movements
+- "The myocardium has no such luxuries. It has to keep pumping even in sleep"
+- The myocardium keeps pumping "in an indefatigable manner"
+
+## HEART ATTACK & MYOCARDIAL DAMAGE:
+
+**Heart Attack (Myocardial Infarction):**
+- Three coronary arteries supply three parts of the myocardium
+- If one artery gets blocked, that area can get permanently damaged
+- This is known as heart attack or myocardial infarction — "Death is termed as infarction"
+- When a portion of the myocardium dies, the pumping capacity of the left ventricle goes down
+
+**Left Ventricle Ejection Fraction (LVEF):**
+- Normally the left ventricle receives about 100 ml of blood from the left atrium
+- It pumps out about 60 ml into the aorta, making the ejection fraction 60%
+- This calculation comes through echocardiography
+- If heart muscle dies or gets damaged, ejection fraction comes down
+- Damage is classified as mild, moderate, or severe depending on extent of muscle affected
+
+## HEART MUSCLE DISEASES:
+
+**Cardiomyopathy (Heart Muscle Disease):**
+- Can happen due to:
+  - Viral infections
+  - Chronic alcohol abuse
+  - Chemotherapy drugs used for cancer treatment
+- Results in paralysis of the heart muscle
+- Leads to overall reduction in ejection fraction
+- Called "global hypokinesia" — meaning the heart is not moving enough
+
+**Hypertrophy (Thickened Heart Muscle):**
+- Just as weight lifting brings changes in the biceps muscle (thick, strong, and tough), the myocardium also gets stronger and hypertrophied in certain conditions
+- Causes of hypertrophy:
+  - High blood pressure for some time
+  - Narrowed outflow valve
+  - Hypertrophic Cardiomyopathy (HCM) — a genetic disease where heart muscle is very thick "by design, that means by birth" and can be seen in families
+
+## HEART FAILURE & TREATMENT:
+
+**Heart Failure:**
+- When the myocardium gets diseased, it results in heart failure
+- Severity of heart failure depends on how badly affected the myocardium is
+- "Miraculous medical treatments are now available by which a once desperate situation can be rosy due to certain drugs"
+
+**Advanced Treatment Options (in order of progression):**
+- Medications first
+- If heart continues to be weak despite drugs: pacemakers like CRT-D and CRT-P to improve pumping capacity
+- If disease is beyond pacemakers: artificial heart or Left Ventricular Assist Device (LVAD)
+- Final option: heart transplant — when myocardial damage is irreversible and life expectancy is less than two years
+
+**Treatment for Hypertrophied Heart:**
+- Replace the narrowed valve
+- Sometimes the thick muscle is "chemically burnt with the help of absolute alcohol"
+- Keep blood pressure well controlled
+
+## PREVENTIVE PHILOSOPHY:
+
+- "To devise such a myocardium is nature's marvel, and once again it is our responsibility to look after it with all our might"
+- "Myocardium would be rated easily as the most important part of the human body"
+- "Taking care of this myocardium is of paramount importance"
+- Keeping the myocardium healthy = taking good care of the coronary arteries mainly, and prevention of heart attack
+
+---
+<!-- Source: vidssave.com What Are Artificial Heart Valves - English Audio (10 min only) 360P.mp4 -->
+# NEW KNOWLEDGE TO ADD
+
+## HEART VALVES & VALVE DISEASE
+
+**Anatomy and function:**
+- Heart has four valves: tricuspid, pulmonary, mitral, and aortic valve
+- Valves maintain unidirectional blood flow: right atrium → right ventricle → lungs → left atrium → left ventricle → body
+- Valves open and close with every heartbeat — approximately 80 times/minute, millions of times over a lifespan
+- Closed valve prevents backward blood flow (regurgitation)
+- Most common valve surgeries are on the left side: mitral valve or aortic valve
+- Right-sided valve replacements (tricuspid and pulmonary) are less than 5% of total valve surgeries
+
+**Valve disease in India:**
+- "Diseases of the valves are rampant, especially in India"
+- Range from mild to moderate to severe or devastating forms
+- Severe forms usually require valve replacement by surgery
+
+## ARTIFICIAL HEART VALVES
+
+**Types of artificial valves:**
+
+*Tissue valves (bovine):*
+- Made from pig tissue — either pig's heart valve or pericardium
+- More convenient but not durable
+- In mitral position: last 10–12 years
+- In aortic position: last 12–15 years
+- Newer tissue valves are designed to last longer — can now replace in younger population
+- Require only single daily dose of aspirin (no serious blood thinners needed)
+
+*Metallic valves:*
+- Made of specialized steel
+- More durable but not as convenient
+- Used for younger patients (under age 50 in India) — need valves that last at least 20 years
+- Require serious blood thinners (coumadin derivatives)
+- Require monthly blood test (INR) to monitor blood thinning
+
+**General guideline:**
+- Under age 50: usually metallic valve is replaced
+- Above age 50: tissue valve is replaced
+- Final decision should be left to medical experts
+
+**Testing and safety:**
+- Artificial valves are tested outside the body in laboratory for about 1 billion times before introduction for human use
+
+**Surgical procedure:**
+- Most valves are replaced with open heart surgery
+- Diseased valve is removed and new artificial valve is sutured in place
+- Success rate of open heart surgery in India: close to 90%
+- After successful surgery, valve needs to last for entire lifespan of person
+
+## BLOOD THINNERS & INR MANAGEMENT
+
+**For metallic valves:**
+- Require blood thinners to prevent clots on the foreign body
+- Monthly INR (blood test) checks how thin the blood is
+- Target INR: more than 2× normal and less than 3× normal
+- INR less than 2: danger of clot formation in valve — dose needs to be increased
+- INR more than 3: chance of bleeding in internal organs — dose needs to be reduced
+- "This management of the blood thinner or the coumadin derivatives leading to INR management can be cumbersome but with training most of the patients are able to manage it very well"
+
+**For tissue valves:**
+- Single daily dose of aspirin will look after the tissue valves as long as they last
+
+## FOLLOW-UP & MONITORING
+
+- Every year all valve patients undergo echocardiography to check valve function
+
+**Possible complications (fortunately not many):**
+- Valve getting old
+- Valve not functioning well
+- Valve not closing well
+- Valve getting clots
+- Valve getting infection
+- Valve throwing out clots from surfaces
+- Overall success rate of valve surgeries is reasonably good
+
+## TAVR (TRANSCATHETER AORTIC VALVE REPLACEMENT)
+
+- For very old patients (about age 75 years), open heart surgery is generally avoided due to high risk of surgery and anesthesia
+- TAVR: valve replaced through the groin without surgery
+- So far done only for aortic valve
+- Lasts for about 7–8 years
+- Surgical replacement of aortic valve is known as SAVR
+
+## REDO SURGERIES & SPECIAL PRECAUTIONS
+
+- If artificial valves get dysfunctional, they can be replaced again (redo surgery)
+- Nowadays non-surgical replacement of old valves is also possible
+- Redo surgeries have reasonable success rate
+- For persons living with artificial valve: dental procedures or other operations require special precautions — cardiologists and cardiac surgeons will manage this when required
+
+## PATIENT OUTCOMES
+
+- Valve patients can be very sick to start with
+- After replacement, "they spring back to life"
+- Quality of life and quantity of life can be really rewarding if discipline is maintained and medical follow-up is routinely done
+- "Artificial heart valves is a phenomenal human invention and in the modern science this would rate as one of the highly advanced intervention trying to help nature to make human beings live longer and live well"
+
+---
+<!-- Source: Heart Health_ The Ideal Parameters.transcript.txt -->
+# NEW KNOWLEDGE TO ADD
+
+## ATHEROSCLEROSIS & HEART DISEASE FUNDAMENTALS
+
+- Atherosclerosis is the commonest disease affecting the heart worldwide
+- "Like rust building up inside metallic pipes" — atherosclerosis is a slow process going on for years
+- LDL particles get deposited in medium-sized arteries of heart, brain, kidneys
+- Eventually arteries get clogged badly enough to cause ischemia (inadequate blood supply to organs)
+- The process of atherosclerosis can be prevented, halted, and to some extent reversed by meticulously managing parameters
+- One of the factors responsible for atherosclerosis is chronic mental stress — unfortunately it's not tangible, no investigation to measure it
+- In modern day existence, chronic stress should be assumed to be existing
+
+## IDEAL HEART HEALTH PARAMETERS (for adults above 30 years)
+
+**Weight:**
+- Ideal weight formula: height in inches = weight in kilograms (e.g., 65 inch tall man should weigh 65 kg)
+- Women: approximately 5 kg less than men for same height
+- 5–10% leeway on either side based on body frame
+- BMI (weight in kg ÷ height in meters²): aim for less than 23
+- If overweight/obese: losing 10–15% of weight brings remarkable medical benefits
+- "Trying to reach the ideal weight is a utopian dream"
+
+**Blood Pressure:**
+- All adult men and women at all ages should have systolic BP below 130 mmHg without medication
+- "All our organs are designed to last till the age of 120 years for a systolic blood pressure of 120 mmHg"
+- Anything above 140 systolic persistently definitely needs treatment
+- Elevated BP between 130–140 mmHg should not be taken lightly
+- Diastolic BP: 80 is ideal (lesser importance than systolic)
+
+**Heart Rate/Pulse:**
+- Resting pulse rate (in quiet body and mind state): 70–80 per minute is ideal
+- Can be monitored via smartwatch, BP apparatus, or pulse oximeter
+
+**Blood Sugar:**
+- Continuous Glucose Monitoring (CGM) device is for the ideal world
+- HbA1c (3-month average) is the practical parameter to follow
+- Non-diabetics: should be well below 6
+- Good diabetes control: value between 6 and 6.5
+
+**LDL Cholesterol:**
+- Normal adults: LDL less than 100 mg%
+- Individuals who have suffered heart attack or paralysis: LDL of 55 or below, may be as low as 30 based on risk
+- HDL is no longer considered the so-called "good cholesterol"
+- Triglycerides may have some value but not as emphatic as LDL
+- Lipid profile can now be performed in non-fasting state — 14-hour fasting no longer necessary
+- Non-fasting blood represents LDL cholesterol accurately
+
+**Supporting Parameters:**
+- Serum creatinine (kidney function)
+- Protein in urine (kidney function)
+- Vitamin B12 levels
+- Vitamin D3 levels
+- "Supporting parameters, not as emphatic as others, but they need to be in order"
+
+**Optional Parameters (weak mention):**
+- CRP-high sensitivity
+- Thyroid
+- Uric acid
+- Liver function
+
+## SCREENING & CHECK-UP SCHEDULE
+
+- First physical check at age 10: blood pressure in all four limbs, blood sugar, cholesterol — to rule out abnormalities present from birth
+- If all normal at age 10: next check at age 30, then 40, then every 3 years
+
+## LIFESTYLE PARAMETERS
+
+- Achieve zero tobacco and almost no alcohol state
+- Sticking to prescribed medication for more than 90% of the time
+- Diet and exercise routine should be background activity for more than 80% of the time
+- "For external cleanliness we commence taking a bath in childhood and follow it up through life without much motivation. Health important matters like heart health deserve a steady diet exercise routine which would be compared to a bath"
+- "Food for body rather than desire"
+- Good social connects
+- Adequate good quality sleep
+- Hobbies help heart health
+
+## STRESS MANAGEMENT
+
+- Chronic mental stress is a risk factor for atherosclerosis
+- No investigation exists to measure stress
+- Yoga, meditation, hobbies, social connects, emotional core group must be introduced to cope with stress
+
+## PRACTICAL ADVICE
+
+- "Make your personal list of ideal parameters and stick it up on your pinup wall, electronically or actually, and keep deriving motivation from it"
+- Starting conversations about these parameters in friends, family groups, social media helps percolate knowledge in society, especially the young
+- Most healthy individuals can achieve ideal parameters by diet, exercise, adequate rest and periodic checks
+- Those with known atherosclerosis need medication in the fore; parameters differ only in LDL levels
+- "This many suffer disease, the giant killer, can be kept at bay remarkably well by achieving the targets year after year"
+- "It takes a lot of common sense, basic discipline and an open attitude with an eye for preventing atherosclerosis"
+
+---
+<!-- Source: Understanding  CT Angiography.mp4 -->
+# NEW KNOWLEDGE TO ADD
+
+## CT ANGIOGRAPHY & CARDIAC IMAGING
+
+**What is Angiography:**
+- "Angiomeans in artery or a blood vessel and graphein means a photograph" — angiography pictures the flow of arteries
+- Blood is transparent for X-rays; iodine-containing contrast or dye must be injected to make blood visible
+- X-rays are then beamed across the artery to take still frames or running movies
+- Types: carotid angiography (brain arteries), coronary angiography (heart), renal angiography (kidneys), peripheral angiography (all other arteries)
+
+**Traditional Catheter Angiography:**
+- A 2mm diameter tube/catheter inserted from groin or wrist under local anesthesia
+- Catheter inserted up the arterial tree against blood flow to reach desired location
+- Done under X-ray control in specialized cath lab (like operation theater, sterile conditions)
+- Iodine contrast injected from catheter; X-ray movie taken while contrast flows
+- Takes 15–20 minutes to perform
+- Requires hospital admission and at least 12 hours observation afterward
+
+**CT Angiography — General:**
+- Non-invasive technique using computerized tomography (CT)
+- No catheter inserted in body; contrast injected through vein (like saline infusion)
+- Works brilliantly for still/non-moving arteries: brain, kidneys
+- Heart is a dynamic structure with constantly moving arteries — older CT scanners were too slow to capture clear images
+
+**Old CT Angiography Limitations:**
+- Required large amounts of contrast medium that could affect kidneys
+- Required breath-holding ability of at least 20 seconds
+- Could not handle rapid heart rates
+- Out of 10 patients who wanted CT angiography, at least 4 were rejected for above reasons
+
+**Modern Ultra-Fast/Rapid CT Coronary Angiography:**
+- "I feel it's going to be a game changer. The CT coronary angiography, the rapid one."
+- Modern scanners slice at more than 1,000 slices per minute
+- Can overcome heart movement dramatically and produce absolutely clear pictures
+- Walk-in, walk-out procedure — no admission needed
+- Patient needs to fast for 2 hours and have recent serum creatinine report (kidney function test)
+- Scanner takes about 10 seconds to make the picture
+- Reports available within 1 hour depending on lab workload
+- Has 100% negative predictive value: "if the CT angiogram shows no blockages at all and no calcium at all, that's going to be the gold standard"
+- If blockages are shown, the exact percentage may not be accurate and may require catheter angiography
+
+**Calcium Score on CT Angiography:**
+- As age advances, calcium deposits in arteries (like cholesterol blockages)
+- Calcium score less than 300 = mild to moderate calcium
+- All young individuals expected to have zero calcium score
+- High calcium score makes CT angiography inaccurate — patient then subjected to catheter angiography
+- Heavy calcium (common after age 70) prevents CT scanner from seeing inside artery to show blockages
+
+**Recommended Use of Ultra-Fast CT Coronary Angiography:**
+- Can be a screening test for age group 40–50 in high-risk individuals
+- "Potentially in future it could replace the traditional treadmill stress test"
+- Can become part of executive checkup for adults
+- Can be repeated every 3–5 years based on risk
+- Recommended before: high-altitude trek, major financial investment, many major surgeries
+- Cost is presently higher but will drop over time
+
+**Dr. Hiremath's Position on Modern CT Scanners:**
+- "This ultra-fast CT angiography especially of the coronaries is going to be a game changer"
+- "This modern day CT scanner is a boon in itself miraculous advance in the evaluation of the coronary arteries"
+- Direct test (shows actual blockages) vs. indirect tests (treadmill stress test, nuclear medicine test) — brings accuracy in diagnosis and prediction
+- "Every individual in the world wants to know whether there is a block in the coronary or not"
+- "In the era where very young heart attacks and sudden cardiac deaths in young are on the rise, the ultrafast CT coronary angiography is a highly recommended test"
+- "The ease with which the modern day CT scanner is working, I can make out it's going to be a common test in the future"
+
+## SUDDEN CARDIAC DEATH IN YOUNG PEOPLE
+
+- "We see so many young people suddenly collapsing and dying these days and the incidence is all the time growing and counting"
+- One of the reasons is young heart attack
+- Rapid coronary CT scanner could overcome the "suddenness or the surprise element"
+
+---
+<!-- Source: Heart Dynamics.mp4 -->
+# NEW KNOWLEDGE TO ADD
+
+## HEART ANATOMY & PHYSIOLOGY:
+
+- "Like many unbelievable creations of nature, the human heart is also a breathtaking design. Despite being in cardiology for nearly 4 decades, every time I think of the intricacies and minute detailing, it gives me goosebumps. Kudos and salute to the creator, whoever and wherever he, she or it is."
+- The heart weighs only 400 grams (compared to body weight of 70 kg) but receives 9% of the total blood supply — indicating nature values the heart tremendously
+- Heart contracts and relaxes about 70 times per minute; over a 75-year lifespan, this equals 2.7594 billion beats (70 × 60 × 24 × 365 × 75)
+- The heart is made of a "phenomenal, indefatigable muscle, which has to work relentlessly without a pause"
+- One complete blood circulation cycle (left atrium → body → veins → right heart → lungs → left atrium) takes approximately 20 seconds — completed with every heartbeat
+- Left ventricle pumps about 60-70 ml of blood per beat into the aorta in the form of a wave
+- Oxygenated blood leaving the left ventricle is bright red with oxygen saturation of 99% (measured by pulse oximeter as SpO2)
+- Deoxygenated blood returning through veins has oxygen saturation of 75% — less red or bluish blood, commonly seen when blood is drawn for laboratory tests
+- Heart acts as a reservoir: receives impure blood into right atrium, pumps it to lungs for purification, receives oxygenated blood in left atrium, pumps it to organs
+- "A cashier in the bank used to receive cash and give out cash, but had to receive his or her salary at the beginning of the month separately. The pool of cash around him or her was not meant for him. Same is true about the heart." — the heart receives its energy supply separately via coronary arteries, not from the blood passing through its chambers
+
+## BLOOD PRESSURE & HEMODYNAMICS:
+
+- Systolic blood pressure = the upper point of the pressure wave when left ventricle pumps blood
+- Diastolic blood pressure = the lower point (nadir) of the pressure wave
+- Returning venous blood flows in a low pressure circuit with some valves, "as if it is sucked by the right side of the heart"
+- Hemodynamics is the study of how blood moves out, how pressures are generated, and how pressure changes in disease conditions — "as cardiologists, we pride in our knowledge of the hemodynamics"
+
+## CARDIAC INVESTIGATIONS:
+
+- Invasive hemodynamic studies: cardiac catheterization — a 2mm tube passed into heart chambers through groin vein or artery to record blood pressures in all four chambers
+- Can diagnose conditions like constrictive pericarditis (compression of heart from outside) through hemodynamic study
+- Invasive studies becoming less common as echocardiography is now so advanced it provides most information non-invasively
+- Hemodynamics was first studied in the 16th century by Dr. Harvey; now a complete science with little left to explore
+- "The students of cardiology learn this hemodynamics over a period of time and get mature when the hemodynamics gets ingrained into their brains"
+
+## HEART DISEASE PREVENTION (GENERAL):
+
+- "Let's marvel the heart. Let's feel gratitude to nature for giving us such a fantastic pump and let's value it and look after it well so that it remains in working condition for a long time."
+- A good lifestyle, timely investigations and treatment can be very rewarding if something goes wrong with the heart and its hemodynamics
+
+---
+<!-- Source: vidssave.com On monitoring the Heart _ Health Awareness Series 360P.mp4 -->
+# HEART MONITORING & DIAGNOSTICS:
+
+**Heart Activity Monitoring:**
+- The heart beats approximately 70 times per minute × 60 minutes × 24 hours × 365 days — over a lifetime the number is so vast "the calculator screen is inadequate"
+- "Cardiology, to use a cliché, is a pulsating branch. The action of the heart is relentless."
+- Common complaint pattern: rapid heart rate, palpitation, dizziness, or fainting at night — but when patient reports next morning, examination is completely normal
+- Modern monitoring with AI helps make correct diagnosis and precise treatment — "the onus is no longer on the patient to remember what time of the day it happened"
+
+**ECG & Holter Monitoring:**
+- Basic cardiac monitor: patient connected through wires, ECG runs continuously, heart rhythm stored for 24 hours, can review backwards to see rhythm at 3 AM or 4 AM
+- Can detect when heart becomes very slow or very fast
+- 24-hour Holter monitoring: ECG recording device tied to patient body with wires, patient moves around normally — goes for walk, office, drives car (called "ambulatory" monitoring)
+- After 24 hours, device returned to doctor's office, software displays entire 24-hour period
+- Shows: average heart rate, fastest heart rate, slowest heart rate, abnormal beats, missed beats, dropped beats — all termed "arrhythmia" (disturbed normal rhythm)
+- 7-day wireless monitor: like a pen drive, stuck on patient's skin, no wires, can wear while bathing, working, even playing tennis
+- Can be worn for 7 days, 15 days, or even 1 month — yields very accurate diagnosis
+
+**Atrial Fibrillation (AF):**
+- AF is abnormality where upper heart compartments (atria) go into fast rhythm
+- Can cause palpitation, remain completely silent, or be very explosive
+- Major danger: abnormal atrial contractions cause blood stagnation → clot forms in atria → clot travels to brain → stroke or paralysis
+- "So many atrial fibrillation patients are found when they present to us with a stroke or a paralysis"
+- For stroke/paralysis with no obvious cause found on standard tests, 7-day/15-day/1-month Holter monitoring will detect intermittent AF
+- Once diagnosed, "the treatment can then be very simple"
+
+**Advanced Monitoring:**
+- Loop recorders: small device placed inside skin by small surgery, stays for months or a year, picks up very silent or infrequent arrhythmias, reports back through AI
+- AI interprets ECG continuously — humanly impossible for someone to watch ECG all the time
+- AI accuracy is very high due to vast stored information about heart rhythm types and ECG forms
+- AI presents abnormality at end of study or as alarm during monitoring
+- Smart watches now available for ECG rhythms, especially atrial fibrillation — can give alarm if AF detected
+- Smart watch ECG is "fairly crude but serves the purpose when the rhythm is gross and abnormal"
+
+**Blood Pressure Monitoring:**
+- Ambulatory blood pressure monitoring (ABPM) needed because of two phenomena:
+  - **White coat phenomenon**: blood pressure recorded high in doctor's clinic/office, but normal at home
+  - **Masked hypertension**: blood pressure normal in doctor's office (person feels comfortable and assured), but high at home due to home stresses
+- ABPM device worn on body, programmed to record blood pressure 40–60 times in 24 hours
+- Records during sleep, walking, other activities — gives nighttime, daytime, and average readings
+- **Normal pattern: "night dipping"** — nighttime average is about 20% lower than daytime average due to sleep
+- If dipping not achieved: means arteries are hard and contracted, needs medication treatment
+- ABPM helps determine: (1) how much control is achieved by current treatment, (2) whether person is really hypertensive
+- Has brought "tremendous amount of scientific data" leading to "highly correct blood pressure treatment"
+
+---
+<!-- Source: vidssave.com Understanding Chronic Heart Failures 360P.mp4 -->
+# NEW KNOWLEDGE TO ADD
+
+## HEART FAILURE
+
+### Definition and Mechanism
+- Heart failure means "heart is not doing adequately enough"
+- Normal heart pumps ~5 liters of blood per minute; in heart failure it drops to 4 liters or 3.5 liters per minute
+- "The all 4 chambers of the heart could dilate or they become bigger, their contractility becomes less, the effective pumping becomes less"
+- Heart failure = reduced cardiac output — blood coming out of the heart for the body starts dropping
+
+### Causes of Heart Failure
+- Heart is made of 4 systems that can fail: heart valves, heart muscle, plumbing system (coronary arteries), and electrical system (heart rhythm)
+- Heart attack from coronary blockage — part of heart gets permanently damaged, capability drops from 100% to 50%
+- Valve leakage — creates strain on heart, causes it to tire out
+- Weak heart muscle — can result from chronic alcoholism
+- Rhythm disturbances — abnormally slow or fast heart
+- Congenital abnormalities present from birth
+- Amyloid deposits in heart muscle can damage contractility
+
+### Risk Factors
+- Advancing age — heart muscle gets tired
+- Long-standing diabetes
+- Long-standing high blood pressure
+- Previous heart attack
+- Foreign substances like amyloid getting into heart muscle
+
+### Symptoms
+- Fatigue — muscles don't get enough blood to work, causing generalized fatigue
+- Breathlessness — fluid collects in lungs due to backward pressure
+- Unable to lie down flat — patient must sit up to feel comfortable
+- Swelling of the feet
+- Enlargement or congestion of liver causing loss of appetite
+- Fluid retention in lungs, legs, or organs
+
+### Worsening Heart Failure (Acute Decompensated Heart Failure - ADHF)
+- Patient was stable on treatment for months/years, then suddenly condition worsens and requires hospital admission
+- "Any hospital admission for a worsening of the heart failure would mean that the heart is getting worse and worse and the original disease is getting problematic"
+- Also diagnosed when stable patient becomes breathless and requires medication increase (escalation)
+- Visit to emergency room also counts as worsening heart failure
+- Means outcome is getting worse, disease progressing, life getting shorter
+- Leads to repeated hospital admissions and spiraling down of health
+
+### Treatment — Four Pillars of Management
+- Four proven drugs known as "GDMT" (Guideline Directed Medical Therapy)
+- Benefits: relief of symptoms, extension of life, prevention of sudden cardiac death, better overall outlook
+- Despite proper doses, ~1 out of 7 individuals can still develop worsening heart failure — this is an "unmet need"
+
+### Management of Worsening Heart Failure
+
+**Lifestyle modifications:**
+- Curtail physical activity — avoid too much exercise, reduce job stress, ensure adequate rest
+- Fluid restriction — reduce from 1.5 liters/day to 1 liter/day
+- Strict salt restriction — eliminate added salt and salty items from food
+- "Salt and water means added burden on the heart and we don't want to have this added burden when the person is developing worsening heart failure"
+- Ensure adequate sleep so heart gets rested
+
+**Medical management:**
+- Add extra drugs beyond the four pillars
+- Correct sodium balance, potassium balance
+- Correct low hemoglobin with therapy
+- Reduce heart rate from baseline 80 to 70 to 65 — "helps a great deal"
+
+**Advanced therapies:**
+- Pacemaker for some patients
+- Left ventricular assist device (LVAD)
+- Heart transplantation
+- Mechanical therapies considered when medical therapy reaches its limit and life expectancy is less than one year
+
+---
+<!-- Source: Addictions.mp4 -->
+# ADDICTIONS
+
+## GENERAL PRINCIPLES ON ADDICTION
+- Addiction is a chronic medical illness that is treatable — like any disease, it requires awareness, prevention, early detection, small remedies, major remedies, and sometimes surgical strike
+- "Addiction is like an electric plug in the mind" — once it takes hold, it creates a powerful circuit that is difficult to break
+- Addiction is not just limited to obvious substances — it includes social media, gaming, excessive eating, excessive exercise, gambling, sex, and even supari (betel nut)
+- "Addiction potential" is real and documented — some people are genetically predisposed, some by personality type, to fall into addictive patterns
+- The brain releases reinforcing chemicals like dopamine in response to addictive substances or behaviors — this creates the urge to repeat the behavior
+- Background, environment, exposure to addictive substances, and social company all play a role in developing addiction
+- Every addiction starts with first use — "We all take the first step" — awareness and prevention must begin there
+
+## CAUSES AND RISK FACTORS
+- Adolescence is a particularly vulnerable period — brain circuits are still developing, hormones are changing, peer pressure is high, freedom increases
+- Childhood experiences matter: lack of parental love, financial stress, guilt, neglect — all increase addiction risk
+- Social acceptance of certain addictions (e.g., tobacco, alcohol, gutka) makes them seem harmless, but they are gateways
+- "Fast lane driving" analogy: addiction is like constantly overtaking, speeding, switching lanes — never staying in the middle, balanced lane
+- Relief-seeking behavior: people turn to addictive substances or activities for temporary relief from stress, sadness, or social anxiety
+
+## PREVENTION (ESPECIALLY IN CHILDREN AND ADOLESCENTS)
+- **Watch children very carefully** — especially during adolescence when hormones, peer pressure, exposure, and freedom combine
+- Parents must use "guided democracy" (like Singapore's model): freedom with boundaries, discipline, safety, and preparation
+- A prepared mind can distinguish between entertainment and addiction — and can enjoy life without falling into dependency
+- Teach emotional coping mechanisms early: exercise to handle body tension, talking to a trusted friend to handle mental pain, acceptance of failure
+- **First cigarette, first drink at home under parental supervision** — teach limits, teach saying no, prepare the mind through supervised exposure
+
+## RECOGNIZING ADDICTION
+- Key warning signs: repeatedly returning to the activity, inability to function without it, lying about it, guilt, social isolation, declining performance
+- "Workaholic" — Dr. Hiremath uses this term for people addicted to work: unable to switch off, checking emails constantly, becoming inefficient, neglecting work-life balance
+- "Work hard is good, but work smart. Work-life balance is yoga."
+- If a person cannot stop despite wanting to, if the middle lane is already lost, professional treatment is needed
+
+## TREATMENT AND SUPPORT
+- Do not blame the addicted person — addiction is an illness, and by the time it's visible, the person has already lost some capacity to change on their own
+- "The addict cannot see the addiction" — accept this reality and approach with love, not blame
+- Family, friends, and well-wishers must play an active role
+- Counseling, group discussions, de-addiction therapy, and sometimes isolation therapy are needed
+- Hypnotic suggestion and structured support groups can help
+- Approach with friendship, love, and genuine concern — not judgment
+- Treatment works, and **hope must never be abandoned** — recovery is always possible
+
+## SPECIFIC ADDICTIONS MENTIONED
+- Tobacco, alcohol, gutka (betel nut with tobacco), cocaine
+- Social media, gaming, shopping, excessive eating, excessive exercise, gambling, sex
+- Supari (betel nut) — even this seemingly harmless habit is recognized as an addiction
+- "Cigarettes damage the lungs, alcohol damages the liver" — each addiction has targeted harm
+
+## MESSAGE TO PARENTS
+- **Be vigilant from childhood** — notice behavioral changes, obsessive habits, what the child is watching or consuming
+- Teach the difference between curiosity and compulsion
+- Create an environment where the child can share openly without fear
+- Ensure emotional support, structure, and safe boundaries
+- Love and preparation are the best defenses against addiction
+
+---
+<!-- Source: Heart Transplants.mp4 -->
+# HEART TRANSPLANTS & ADVANCED HEART FAILURE
+
+HEART TRANSPLANT INDICATIONS:
+- Heart transplantation is considered when the heart is "beyond any kind of repair" — termed as end stage heart failure
+- Treating doctors estimate remaining life expectancy to be less than two years
+- Two treatments considered at this stage: LVAD (Left Ventricular Assistive Device) or heart transplantation
+- Any severe heart disease can become end stage: congenital diseases, coronary heart disease, valvular heart disease, cardiomyopathies — "all can become incurable, progressively worsen and become end stage one day"
+- Recipients are typically individuals aged 5 to 70 years with end stage heart disease
+
+HEART TRANSPLANT PROCESS:
+- Heart transplantation means "removing the end stage heart and replacing it with a healthy heart of a person who died recently"
+- Two key terminologies: recipient (patient receiving the heart) and donor (person who died)
+- Recipients are identified through examination and echocardiography
+- Transplant coordinators, social workers, and hospital administrators prepare the family and patient
+- Medical, psychological, financial and logistical arrangements must be completed
+- "A recipient should be able to reach the hospital any time of the day when called and within few hours"
+- Time required from donor heart removal to implantation in recipient: about 5 hours — "shorter the better"
+- Best scenario: donor heart available in the same hospital as recipient — avoids transport complications
+
+DONOR CRITERIA:
+- Donor is a person who died of a non-infectious disease, mostly from road traffic accident
+- Individual was otherwise healthy but suddenly reached end of life
+- Must be on ventilator and certified brain dead by standard parameters
+- Organs that can be donated: eyes, cornea, lungs, liver, heart, kidneys, and to some extent skin
+- Cardiology team assesses donor heart with echocardiography and advanced tests if required
+- Blood group must be matched between donor and recipient
+- Highest on waiting list for same blood group is considered for transplantation
+
+TRANSPLANT SURGERY:
+- Both surgical teams work simultaneously — one at donor site, one preparing recipient
+- Recipient is placed on heart-lung machine while old heart is removed
+- "It's a moment of truth when you see such a heart which was stopped and is preserved in ice starts beating at the advent of the new blood circulation"
+- Like any open heart surgery, the new heart starts beating when warm blood flows through it
+
+POST-TRANSPLANT CARE:
+- Meticulous medical management for few days on ventilator
+- Hazards include: infection, rejection, failures
+- After successful rehabilitation for one to two months, recipients can start moving in society
+- Most resume activities like going to office, driving a car
+- "There is a sudden and dramatic change in the quality of life"
+
+POST-TRANSPLANT MEDICATIONS & PRECAUTIONS:
+- Recipients are on drugs called immunosuppressants
+- Remain susceptible to infections while on immunosuppressants
+- Wearing of masks and generally avoiding infections is important
+- Must be meticulous with medication
+
+TRANSPLANT OUTCOMES:
+- "At the end of 10 years of a successful transplant, more than 80% of the recipients are expected to be alive and well"
+- Most patients "spring back to life and go on to pursue their careers as before"
+- Families are "extremely joyful with the dramatic recovery"
+- "For the person who was facing death in the next few months, a leash of life is always welcome"
+
+FUTURE OF HEART TRANSPLANTS:
+- "In the future we would see seamless transplantation or implantation of artificial hearts without any live human donors"
+
+---
+<!-- Source: Heart Health_ The Ideal Parameters 2.mp4 -->
+# NEW KNOWLEDGE TO ADD
+
+## IDEAL HEART HEALTH PARAMETERS (2025)
+
+**Core Parameters for Adults Above 30:**
+- Weight: height in inches = weight in kilograms (e.g., 65 inch tall man should weigh 65 kg; women 5 kg less for same height)
+- BMI: aim for less than 23 (weight in kg ÷ height in meters squared)
+- Body frame variation: 5–10% leeway on either side is acceptable
+- Systolic blood pressure: below 130 mmHg without medication
+- "All our organs are designed to last till the age of 120 years for a systolic blood pressure of 120 mmHg"
+- Anything above 140 systolic persistently needs treatment
+- Blood pressure between 130–140 mmHg "should not be taken lightly"
+- Diastolic blood pressure: 80 is ideal, but of lesser importance than systolic
+- Resting pulse rate: 70–80 per minute is ideal (in quiet body and mind state)
+- HbA1c: all non-diabetic individuals should be well below 6; good diabetic control = 6 to 6.5
+- LDL cholesterol: normal adults should have less than 100 mg%
+- LDL for heart attack/stroke survivors: 55 or below, may be as low as 30 based on risk
+- HDL is "no longer considered the so-called good cholesterol"
+- Triglycerides may have some value but not as emphatic as LDL
+- Serum creatinine, protein in urine, vitamin B12, vitamin D3: supporting parameters, need to be in order
+- Zero tobacco and almost no alcohol
+
+**Weight Management:**
+- If overweight or obese, losing 10–15% of weight can bring remarkable medical benefits
+- "Trying to reach the ideal weight is a utopic dream" — focus on meaningful reduction instead
+
+**Lipid Profile Testing:**
+- Can be performed even in non-fasting state
+- "The earliest stipulation of 14 hours fasting blood sample is no longer necessary"
+- Non-fasting blood represents LDL cholesterol accurately
+
+**Screening Schedule:**
+- First physical check: age 10 — blood pressure in all four limbs, blood sugar, and cholesterol
+- Purpose: to rule out diabetes and high cholesterol being present from birth
+- If all normal at age 10: next check at age 30, then 40, then every 3 years
+
+**Monitoring Tools:**
+- Smartwatch keeps good monitoring of heart rate
+- Systolic BP apparatus indicates heart rate
+- Pulse oximeter gives heart rate
+- Continuous glucose monitoring device (CGM) is ideal but HbA1c is practical parameter
+
+## ATHEROSCLEROSIS
+
+- "World over, the commonest disease that affects the heart is atherosclerosis"
+- LDL particles get deposited in medium-sized arteries of heart, brain, kidneys
+- "Like rust building up inside metallic pipes, this buildup of atherosclerosis is a slow process, going on for a number of years"
+- Finally arteries get clogged badly enough to cause ischemia (deprivation of blood delivery)
+- Commonest affected: coronary arteries of the heart
+- Atherosclerosis can be prevented, halted, and to some extent reversed by meticulously managing parameters
+- Chronic mental stress is one of the factors responsible for atherosclerosis
+
+## LIFESTYLE & ADHERENCE
+
+- "Food for body rather than desire"
+- Diet, exercise, adequate rest, and periodic checks can help most achieve ideal parameters
+- Need to stick to prescribed medication for more than 90% of the time
+- "For external cleanliness we commence taking a bath in childhood and follow it up through the life without any much motivation. Health important matters like heart health deserve a steady diet exercise routine which would be compared to a bath for more than 80% of the times"
+- Good social connects, adequate good quality sleep, and hobbies also help heart health
+
+## STRESS MANAGEMENT
+
+- "Unfortunately it's not tangible. There is no investigation to measure stress"
+- "In modern day existence chronic stress should be assumed to be existing"
+- Yoga, meditation, hobbies, social connects, emotional core group must be introduced to cope with stress
+- Stress is "an abstract risk factor"
+
+## PATIENT EDUCATION & MOTIVATION
+
+- "Starting about these parameters in friends, family groups, social media will help percolating this knowledge in majority strata of the society especially in the young"
+- Make your personal list of ideal parameters and stick it up on your pinup wall (electronically or actually) and keep deriving motivation from it
+- "This many suffer disease the giant killer can be kept at bay remarkably well by achieving the targets year after year"
+
+---
+<!-- Source: Heart Blockages _ Understanding Key Risk Factors.mp4 -->
+# NEW KNOWLEDGE TO ADD
+
+## ATHEROSCLEROSIS & RISK FACTORS
+
+**Definition & Impact:**
+- "Atherosclerosis is a number one killer disease in human being"
+- Comprises of LDL cholesterol deposition in the arteries causing heart attacks, strokes, kidney failure and gangrene
+- Not a single cause known — it's a conglomeration of reasons
+- Known risk factors: tobacco, high blood pressure, diabetes
+
+**Exponential Risk:**
+- Risk factors increase risk exponentially, not additively
+- "A person has diabetes, high blood pressure, high cholesterol and smokes will have 64 times more risk of developing atherosclerosis as compared to someone who does not have any of these risk factors and is of the same age"
+
+**Prevention Types:**
+- Primary prevention: preventing disease totally, without a spec of disease anywhere in the body
+- Secondary prevention: preventing second episode or worsening of blockages after disease has developed
+- Management of risk factors remains the same whether primary or secondary prevention
+- Composite effort of managing risk factors is known as lifestyle modification
+
+## RISK FACTORS — NON-MODIFIABLE
+
+**Age:**
+- Age keeps advancing — cannot be modified
+
+**Gender:**
+- In general, men suffer more than women
+- Before menopause, ladies get protected much more
+- After menopause, risk of woman and man remains the same for atherosclerosis
+
+**Family History (Genetic):**
+- Gene set exists from birth
+- Definition: "A first degree relative like mother, father, brother, sister having suffered from a heart attack or a stroke, in any form of atherosclerosis before the age of 55 comprises of the family history"
+- An uncle or cousin suffering does not constitute family history (not primary family)
+- History must be sought in details — if father was smoker and died at 45 of heart attack due to smoking complications, it does not become family history
+- At present, no genetic studies can tell in advance whether one is prone for disease
+- What runs in families: heightened risk of atherosclerosis at early age
+- Can also run in families: obesity, diabetes, high blood pressure, familial hypercholesterolemia
+- Familial hypercholesterolemia: LDL cholesterol levels exceptionally high from birth; fortunately very small number
+
+**Cultural/Geographical Differences:**
+- Indians suffer from coronary artery disease at very early age; pattern different from western world
+- Americans suffer more from atherosclerosis of brain arteries
+- Europeans suffer more from atherosclerosis of leg arteries
+
+## RISK FACTORS — MODIFIABLE
+
+**Major Modifiable Factors:**
+- Diabetes
+- High blood pressure (hypertension): about 33% of all adults — alarming number
+- High cholesterol in blood
+- Tobacco consumption in any form
+- Obesity
+- Sedentary lifestyle
+- High-strung, stressful individuals
+- Diabetes: about 11% of population
+- Multiple risk factors can exist in one person
+
+**Newer Risk Factors (identified in last few decades):**
+- Pollution recognized as risk factor
+- Vitamin B12 deficiency
+- Vitamin D3 deficiency
+- Chronic disease of gums (gingivitis)
+- Inflammatory illnesses
+- High resting heart rate or pulse rate
+
+## SCREENING & TESTING
+
+**Advanced Lipid Profile:**
+- Beyond traditional lipid profile (total cholesterol, triglyceride, LDL, HDL)
+- Additional elements: Apo1, ApoB, and LPA
+- All three indicate genetic propensity for developing atherosclerosis
+- Asked for when somebody suffers heart attack at very early age
+- Treatment same as traditional: reduce LDL cholesterol to minimum as low as 30 mg% (normal value above 100 mg)
+
+**Recommended Checkup Schedule:**
+- First checkup at age 20
+- Then at age 30
+- Then periodically every 3 to 5 years depending on whether results abnormal or normal
+- If abnormalities found, should be followed up with regular doctor
+
+**Advanced Investigations:**
+- For high-risk individuals: CT angiography needs to be performed
+- Other screening tests: stress test, TMT, thallium test, stress echocardiography — leave for experts to decide
+
+## NORMAL VALUES (for adults)
+
+- Weight (BMI): should be less than 22
+- Blood pressure: should always be below 130 systolic
+- Heart rate: should be between 70 to 80 per minute
+- HbA1C (3 months average sugar): should be less than 6
+- LDL (bad cholesterol): should be less than 100
+- Kidney function (serum creatinine): should be normal
+- Vitamin B12: should be about 300
+- Vitamin D3: should be about 35
+
+## LIFESTYLE MODIFICATION (composite approach)
+
+**Components:**
+- Correct diet
+- Exercise
+- Stress management
+- Abstinence from smoking
+- Certain drugs like aspirin and statins
+- All lead to wonderful prevention, primary or secondary
+
+**Simple Preventive Measures:**
+- Normal proper diet
+- Moderate exercise
+- Abstinence from smoking
+- Relaxed way of life with family and friends
+- Periodic checks to maintain biochemistry
+- "With such simple measures with regularity" disease can be prevented
