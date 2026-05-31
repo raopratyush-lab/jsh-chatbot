@@ -367,19 +367,21 @@
     gap: 0;
     width: 44px;
     height: 52px;
-    border-radius: 10px;
+    border-radius: 50%;
     border: 2px solid var(--teal);
   }
 
   .msg.bot .msg-avatar img {
     width: 44px;
-    height: 38px;
+    height: 44px;
     object-fit: cover;
     object-position: center top;
     display: block;
+    border-radius: 50%;
   }
 
   .msg.bot .msg-avatar span {
+    display: none !important;
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -439,7 +441,7 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: var(--crimson);
+    background: var(--teal);
     animation: bounce 1.2s infinite;
     opacity: 0.6;
   }
@@ -799,7 +801,7 @@ function showTyping() {
 
   const avatar = document.createElement('div');
   avatar.className = 'msg-avatar';
-  avatar.style.cssText = 'background:var(--teal);color:white;width:44px;height:52px;border-radius:10px;border:2px solid var(--teal);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden';
+  avatar.style.cssText = 'background:var(--teal);color:white;width:44px;height:44px;border-radius:50%;border:2px solid var(--teal);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden';
   avatar.innerHTML = '<img src="' + DR_PHOTO + '" style="width:44px;height:38px;object-fit:cover;object-position:center top;display:block" alt="Dr. Hiremath"><span style="font-size:9px;font-weight:700;letter-spacing:0.05em;background:var(--teal);width:100%;text-align:center;padding:1px 0;display:block;color:white">JSH</span>';
 
   const dots = document.createElement('div');
