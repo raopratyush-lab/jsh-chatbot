@@ -1,0 +1,5 @@
+# Local Netlify folder
+.netlify
+.claude/
+context.txt
+node_modules/
