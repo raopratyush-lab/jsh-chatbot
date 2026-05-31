@@ -569,28 +569,29 @@
   .msg.bot .msg-bubble h1,
   .msg.bot .msg-bubble h2,
   .msg.bot .msg-bubble h3 {
-    font-family: "Playfair Display", serif;
+    font-family: 'DM Sans', sans-serif;
     color: var(--navy-dk);
-    margin: 10px 0 6px;
     line-height: 1.3;
+    font-weight: 600;
   }
-  .msg.bot .msg-bubble h1 { font-size: 17px; }
-  .msg.bot .msg-bubble h2 { font-size: 15px; }
-  .msg.bot .msg-bubble h3 { font-size: 13.5px; }
-  .msg.bot .msg-bubble p { margin: 0 0 8px; }
+  .msg.bot .msg-bubble h1 { font-size: 15px; margin: 12px 0 4px; }
+  .msg.bot .msg-bubble h2 { font-size: 14px; margin: 10px 0 3px; }
+  .msg.bot .msg-bubble h3 { font-size: 13.5px; margin: 8px 0 2px; }
+  .msg.bot .msg-bubble p { margin: 0 0 6px; }
   .msg.bot .msg-bubble p:last-child { margin-bottom: 0; }
+  .msg.bot .msg-bubble br { display: block; content: ''; margin: 2px 0; }
   .msg.bot .msg-bubble ul,
   .msg.bot .msg-bubble ol {
-    margin: 6px 0 8px 18px;
+    margin: 2px 0 6px 18px;
     padding: 0;
   }
-  .msg.bot .msg-bubble li { margin-bottom: 4px; line-height: 1.6; }
+  .msg.bot .msg-bubble li { margin-bottom: 3px; line-height: 1.6; }
   .msg.bot .msg-bubble strong { color: var(--navy-dk); font-weight: 600; }
   .msg.bot .msg-bubble em { color: var(--muted); }
   .msg.bot .msg-bubble hr {
     border: none;
     border-top: 1px solid var(--border);
-    margin: 10px 0;
+    margin: 8px 0;
   }
   .msg.bot .msg-bubble code {
     font-family: "DM Mono", monospace;
@@ -814,7 +815,7 @@ function formatMessage(text) {
       html += '</ol>';
       continue;
     } else if (line.trim() === '') {
-      html += '<br>';
+      // skip empty lines — spacing handled by CSS margins
     } else {
       html += '<p>' + inlineFormat(line) + '</p>';
     }
