@@ -1936,3 +1936,54 @@ LIVING WITH HEART FAILURE:
 - Oratory skills developed through elocution competitions in school
 - English language proficiency developed despite Marathi-medium schooling, credited to teacher VS Deshpande
 - Teacher encouraged reading beyond textbooks — English movies and literature — to discover "true and fundamental lessons of life"
+
+---
+<!-- Source: Know your cholestrol.jpg -->
+# CHOLESTEROL
+
+- Cholesterol is not all bad; there is good cholesterol (HDL) and bad cholesterol (total LDL)
+- Cholesterol is a fatty material present in our cells and plays a positive role in helping to make our cells and execute their biochemical reactions
+- Cholesterol is carried via the bloodstream fastened to proteins or lipoproteins
+- Lowering the total cholesterol level is as important as raising your HDL — it's a sound way to keep your heart healthy
+- Aim at a LDL/HDL ratio of less than 2.5
+
+# WEIGHT MANAGEMENT
+
+- Losing weight if you have a body mass index above 25 can help control high cholesterol, especially LDLs
+- Weight loss from dieting alone can cause the desirable HDLs to drop too
+- Regular aerobic exercise as you diet can help you get over this lowering effect on HDL
+
+# DIET
+
+- Red wine is known to increase HDL
+
+---
+<!-- Source: Sudden Cardiac Death among athletes on the rise.transcript.txt -->
+# SUDDEN CARDIAC DEATH & ATHLETES
+
+- "Recent research has shown that SCD is far more prevalent among the young athletes than previously believed. Though it can strike those who have a sedentary lifestyle, the risk is three times greater in competitive athletes"
+- SCD in a young person usually stems from a structural defect in the heart or a problem with its electrical circuitry
+- The most frequent cause of SCD, accounting for about 40% of all cases, is hypertrophic cardiomyopathy (HCM) or thickening of the heart muscle
+- In high level athletes, HCM leads to 'Athlete's Heart' condition, similar to HCM
+- "The challenge is that those who are at risk are hard to spot, as warning signs, like dizziness and shortness of breath, can be rare"
+- Endurance tests need to be tailored as per weather conditions to ensure candidates can go through it without risking their lives
+- "It's unscientific and inhuman to make youngsters sprint with the mercury touching 40 degrees and humidity touching 90 per cent"
+
+# IMMEDIATE EMERGENCY MEASURES FOR SCD
+
+- Make the victim of SCD lie on the ground and lift his/her legs to return blood to the heart
+- There has to be an ambulance present at all times during all major and local tournaments in the country
+
+---
+<!-- Source: Long Run.jpg -->
+# PERIPHERAL VASCULAR DISEASE (PVD)
+
+- "Lack of awareness about signs and symptoms delays timely medical attention to peripheral vascular disease that ultimately may lead to amputation and even death. As per a report 98% of cases remain undiagnosed because of unawareness."
+- Short supply of blood because of blockage in arteries leads to pain or cramps in legs while walking or exercising — this is known as Peripheral Vascular Disease (PVD)
+- PVD prevalence is around 10% among Indians, especially those above 40
+- A study predicts 65 lakh cases of PVD per year in India, much more than comparative regions like China, Taiwan and South Korea
+- Major risk factors for PVD: high cholesterol, smoking, hypertension and diabetes
+- Preventive steps: exercise and a healthy diet along with controlled blood pressure and sugar
+- Signs and symptoms of PVD: pain, weakness, numbness or cramping in the leg that goes away after three to five minutes of rest; non-healing ulcer or gangrene
+- "In case of any symptoms medical attention and investigation is suggested"
+- Medical treatment for severe symptoms (non-healing ulcers, gangrene, severe blockages and narrowing in blood vessels of legs): angioplasty or very occasionally bypass grafting

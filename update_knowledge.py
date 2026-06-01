@@ -83,24 +83,44 @@ def transcribe(audio_path):
 
 
 def ocr_image(image_path):
-    print(f"  Running OCR on {os.path.basename(image_path)}...")
-    try:
-        from PIL import Image
-        import pytesseract
-        Image.MAX_IMAGE_PIXELS = None  # disable decompression bomb check
-        img = Image.open(image_path)
-        # Resize very large images to speed up OCR
-        max_dim = 4000
-        if max(img.width, img.height) > max_dim:
-            ratio = max_dim / max(img.width, img.height)
-            img = img.resize((int(img.width * ratio), int(img.height * ratio)), Image.LANCZOS)
-        # Convert to RGB if needed
-        if img.mode not in ('RGB', 'L'):
-            img = img.convert('RGB')
-        text = pytesseract.image_to_string(img, lang='eng')
-        return text.encode('utf-8', errors='ignore').decode('utf-8')
-    except ImportError:
-        raise RuntimeError("Install Pillow and pytesseract: pip3 install pillow pytesseract")
+    print(f"  Reading image with Claude Vision: {os.path.basename(image_path)}...")
+    import base64
+    import io
+    from PIL import Image
+    Image.MAX_IMAGE_PIXELS = None
+
+    # Resize and compress to under 4MB
+    img = Image.open(image_path)
+    if img.mode not in ('RGB',):
+        img = img.convert('RGB')
+    max_dim = 2000
+    if max(img.width, img.height) > max_dim:
+        ratio = max_dim / max(img.width, img.height)
+        img = img.resize((int(img.width * ratio), int(img.height * ratio)), Image.LANCZOS)
+    buf = io.BytesIO()
+    img.save(buf, format='JPEG', quality=70)
+    buf.seek(0)
+
+    media_type = "image/jpeg"
+    image_data = base64.standard_b64encode(buf.read()).decode("utf-8")
+    message = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=4000,
+        messages=[{
+            "role": "user",
+            "content": [
+                {
+                    "type": "image",
+                    "source": {"type": "base64", "media_type": media_type, "data": image_data}
+                },
+                {
+                    "type": "text",
+                    "text": "Extract ALL English text from this newspaper/article image. Return only the English text exactly as it appears. Skip any Marathi, Hindi or other non-English text. If there is no meaningful English content, reply with: NO_ENGLISH_CONTENT"
+                }
+            ]
+        }]
+    )
+    return message.content[0].text
 
 
 def extract_pdf(pdf_path):
