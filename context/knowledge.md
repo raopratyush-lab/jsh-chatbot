@@ -191,12 +191,12 @@ RESPONSE RULES — CRITICAL:
 2. If a question falls outside this knowledge base, say clearly: "Dr. Hiremath has not documented a position on this in my available knowledge base. I would recommend consulting him directly or visiting Ruby Hall Clinic."
 3. Never diagnose. Never prescribe. Never interpret individual test results.
 4. For any acute symptom (chest pain, breathlessness, collapse), immediately direct the person to call 112 and go to the nearest ER — before any other response.
-5. Speak warmly and accessibly — as Dr. Hiremath does in his public lectures and radio show. Use plain language. Avoid jargon unless explained.
+5. Speak warmly, directly and accessibly — as Dr. Hiremath does in his public lectures. Use plain language. Avoid jargon unless explained.
 6. Where relevant, acknowledge the Indian dietary and lifestyle context — do not give generic Western advice.
 7. You may say "Dr. Hiremath says..." or "According to Dr. Hiremath..." to attribute positions clearly.
-8. Keep responses focused and readable — use short paragraphs or a brief list where clarity demands it.
-10. Do NOT use emojis, emoticons, or special symbols in responses.
-9. Always end with a reminder that this is educational content and not a substitute for a medical consultation.
+8. FORMATTING — CRITICAL: Write in flowing prose paragraphs, NOT bullet points or heading hierarchies. Use **bold** inline to emphasise key phrases within sentences. Do NOT use # or ## headings. Do NOT start responses with a heading title. Speak directly to the person — use "you" and "your". Keep it conversational, like a knowledgeable doctor speaking to a patient face-to-face.
+9. Do NOT use emojis, emoticons, or special symbols in responses.
+10. Always end with a short reminder that this is educational content and not a substitute for a medical consultation.
 
 ---
 <!-- Source: Heart Health_ The Ideal Parameters.mp4 -->
@@ -1726,3 +1726,213 @@ OVERALL PERSPECTIVE:
 - **Night dipping:** Normally, nighttime average blood pressure is ~20% lower than daytime due to sleep
 - If night dipping is not achieved, it means arteries are hard and contracted — needs medication
 - ABPM has brought "tremendous amount of scientific data" and led to "highly correct blood pressure treatment"
+
+---
+<!-- Source: Sudden Cardiac Death among athletes on the rise.jpg -->
+# SUDDEN CARDIAC DEATH & ATHLETES
+
+- "Recent research has shown that SCD is far more prevalent among the young athletes than previously believed. Though it can strike those who have a sedentary lifestyle, the risk is three times greater in competitive athletes"
+- SCD in a young person usually stems from a structural defect in the heart or a problem with its electrical circuitry
+- The most frequent cause, accounting for about 40% of all cases, is hypertrophic cardiomyopathy (HCM) or thickening of the heart muscle
+- "While HCM in high level athletes leads to 'Athlete's Heart' condition, similar to HCM"
+- "The challenge is that those who are at risk are hard to spot, as warning signs, like dizziness and shortness of breath, can be rare"
+- Endurance tests need to be tailored as per the weather conditions, so as to ensure that the candidates can go through it without risking their lives
+- "It's unscientific and inhuman to make youngsters sprint with the mercury touching 40 degrees and humidity touching 90 per cent"
+
+# EMERGENCY RESPONSE FOR SUDDEN CARDIAC DEATH
+
+- Make the victim of SCD lie on the ground and lift his/her legs to return blood to the heart
+- There has to be an ambulance present at all times during all major and local tournaments in the country
+
+---
+<!-- Source: Life Lessons.jpg -->
+# PERSONAL BACKGROUND & FORMATIVE INFLUENCES:
+
+- Studied at Modern High School, Pune — a local Marathi-medium pathshala
+- Mother tongue is Kanada, but father insisted on Marathi-medium schooling as they lived in Maharashtra
+- Grew up in a large family: five brothers and two sisters
+- "I owe my professional success to them [my teachers]. Even today, if there is a tricky case or a difficult presentation, what tides me through the tough situation is my homework."
+- "I attribute it to my school, which taught me that if your homework is well done, you can handle anything"
+- Credits his oratory skills to elocution competitions held in school
+- Despite Marathi-medium education, acquired English language proficiency through dedicated teaching
+- English teacher: the late V.S. Deshpande — "left an indelible impression on me"
+- Deshpande taught students to "read beyond didactic textbooks" and introduced them to English movies and literature as a way to discover "true and fundamental lessons of life"
+
+---
+<!-- Source: Higher the HDL...jpg -->
+# CHOLESTEROL
+
+**HDL (Good Cholesterol):**
+- HDL acts as scavengers, picking up excess cholesterol in your blood and taking it back to your liver where it's broken down
+- HDL prevents fat from oxidising and building up on the walls of your blood vessels
+- "The higher your HDL level, the more protected are your organs from atherosclerosis"
+- Blood test which measures these fats (lipids) is known as lipid profile
+- HDL levels for women: At Risk: Less than 50 mg/dL; Desirable: 55 mg/dL or above
+- The ratio of LDL/HDL also carries importance — ratio of 2.5 to 1 is ideal, the lower the better (lower LDL, higher HDL)
+- Indians peculiarly have low HDL levels
+- Some may be genetically predisposed to low HDL and may have a harder time increasing a low number by diet and exercise alone — doctors may prescribe medication
+- Smoking, taking steroids, eating foods with trans fats, being obese and inactive can all result in lower HDLs
+- Taking contraceptive pills high in progesterone can also push your HDL levels downward
+- "Are you aware that cholesterol has quite a few positive roles like helping to make your cells and their biochemical reactions?"
+
+**How to Improve HDL:**
+- Losing weight if you have a body mass index above 25 can help control high cholesterol, especially LDLs
+- Weight loss from dieting alone can cause the desirable HDLs to drop along with the LDLs — performing regular aerobic exercise along with following a diet can help you increase HDL
+- Exercise has a powerful, albeit short-lived effect — each workout may result in a subtle HDL boost, so it needs to be done consistently
+- Regular exercisers tend to have higher HDLs
+- Walking at 5 km/hour will use around 500 calories
+- Inactive people may need to burn from 1,500 to 2,200 calories per week through aerobic workouts like walking, swimming, cycling or aerobics
+- Any beginner should always start slow and gradually work up to higher intensity and longer workouts
+- Eating more foods high in unsaturated fats such as olive oil and nuts, as well as more fruits, vegetables, beans and whole grains may be beneficial
+- A study in Diabetes Care found that men and women with Type 2 diabetes who included 30 gm of walnuts a day in their diet had improved HDL levels
+- Red wine is known to increase HDL
+
+---
+<!-- Source: Her Heart Matters.jpg -->
+# WOMEN'S HEART HEALTH
+
+- "Heart disease has conventionally been associated with men. However, there is strong medical evidence that women are equally affected by it."
+- The hormonal protection of women can get disturbed by risk factors like diabetes, hypertension and tobacco consumption
+- Women have symptoms which are not typical of heart attack and therefore their diagnosis and treatment can get delayed
+- "Women do not always present the typical symptom of chest pain. The atypical signs of heart disease in women include shortness of breath, nausea, epigastric pain and fatigue."
+- Up to two thirds of women may present with atypical symptoms
+- These differences in the onset of symptoms are responsible for women delaying seeking emergency care and medical interventions
+- For younger women, the combination of birth control pills and smoking boosts the risk of contracting heart disease by a significant twenty per cent
+- Heart disease in women can be more fatal than breast cancer
+
+---
+<!-- Source: When Her Heart Matters.jpg -->
+# WOMEN AND HEART DISEASE:
+
+- "Heart disease has conventionally been associated with men. However, there is strong medical evidence that women are equally affected by it."
+- "The hormonal protection of women can get disturbed by risk factors like diabetes, hypertension and tobacco consumption."
+- "Women have symptoms which are not typical of heart attack and therefore their diagnosis and treatment can get delayed."
+- Women do not always present the typical symptoms of chest pain
+- Atypical signs of heart disease in women include: shortness of breath, nausea, epigastric pain, and fatigue
+- Up to two-thirds of women may present atypical symptoms
+- These differences in symptom presentation are responsible for women delaying seeking emergency care and medical interventions
+
+# HEART DISEASE PREVENTION (GENERAL TIPS):
+
+- Include physical activity in daily life like walking
+- Reduce intake of saturated and trans fats
+- Cut down on sugar-laden foods and beverages
+- Control hypertension — cut down on salt intake
+- Stop smoking
+- Risk factor control is mandatory to keep heart disease at bay
+- Maintain a healthy weight and active lifestyles
+- No tobacco and alcohol consumption
+
+---
+<!-- Source: Low Intake of Vitamin B 12 is one of the caused for heart diseases.jpg -->
+# NEW KNOWLEDGE TO ADD:
+
+## VITAMIN B12 AND HEART DISEASE:
+- "In India, low intake of vitamin B12 is a common cause for cardiovascular diseases"
+- Cases of people under 40 suffering from heart ailments have increased due to B12 deficiency
+- Large number of Indians depend on vegetarian diet, whereas the source of vitamin B12 is animal products like milk, fish, meat, eggs, and poultry
+
+## HEART DISEASE TRENDS IN INDIA:
+- Around 30 years ago, we had fewer people suffering from cardiac ailments; today the numbers have increased manyfold
+- With increase in affluence, people are going for rich foods and leisurely lifestyle — main reasons for increase in heart diseases
+- Due to sudden lifestyle changes and industrialisation in the last decade, cases of heart related diseases have increased
+- India has just entered this stage, while other developed countries have gone through this phase
+
+## PREVENTION PHILOSOPHY:
+- "To reverse heart disease, we don't have to wait for a new drug or some technological breakthrough; simple changes in lifestyle can do the trick"
+
+## RISK FACTORS (summary list):
+- Major factors that lead to heart diseases among Indians: consumption of tobacco products, alcoholic beverages, stress, sedentary lifestyle, diabetes (especially Type II diabetes), high blood pressure, family history of metabolic disorders (heart ailments, diabetes, high BP and obesity), lack of exercise, over-consumption of non-vegetarian food, irregular health checks, and pollution
+
+---
+<!-- Source: Missing early signs at the heart of young deaths.jpg -->
+# SUDDEN CARDIAC DEATH IN YOUNG PEOPLE / ATHLETES:
+
+- "I have seen young athletes who suffered cardiac arrests or serious problems because of excessive training. While it's true that sedentary lifestyle is a high-risk signal for heart trouble; extreme forms of physical activities can up the risk by three times."
+- "A lot of my young patients in follow-ups reported sudden spurt in physical activity and ignoring signs of dizziness or pain to test their limits before suffering an attack"
+- 40% of sudden deaths take place due to Hypertrophic Cardiomyopathy (HCM), i.e. thickening of the heart muscle
+- Sudden cardiac arrest in a young person usually stems from a structural defect in the heart; regular checks can help detect such problems
+- Warning signs among young people at risk are hard to spot — signs like dizziness and shortness of breath can be ignored by young athletes used to overworking themselves
+- ECG can detect HCM and other potential causes of heart trouble by looking for abnormal electrical signalling in the heart
+- These tests should be included in regular preventive health checks, especially if one indulges in high level of physical activity
+
+# EMERGENCY RESPONSE / CPR:
+
+- In cardiac emergencies: make the victim lie flat on ground and lift his/her legs to ensure blood flow to the heart
+- Perform cardiopulmonary resuscitation (CPR) on the victim's chest, which can stop damage that occurs when the brain does not get fresh blood and oxygen supply
+
+---
+<!-- Source: Weak Heart.jpg -->
+# HEART FAILURE
+
+DEFINITION & DIAGNOSIS:
+- "Heart failure is akin to stoppage of heart that, in the absence of medical intervention, can lead to death. For doctors, it indicates a weak heart."
+- A normal heart has an output of 5 litres of blood per minute
+- A fall to 3.5 litres/minute is termed mild heart failure
+- In technical terms, heart's ejection fraction (normally 60-70%) drops below 40%
+
+CAUSES:
+- Heart failure may occur due to damaged heart muscle, heart attack, defect in heart valves, chronic alcoholism (cardiomyopathy), viral infections, or some anti-cancer drugs
+
+SYMPTOMS:
+- Breathlessness on exertion — gets worse as heart failure worsens
+- Swelling of feet and face
+- Extreme weakness
+- Lack of appetite
+
+MEDICATIONS & PRECAUTIONS:
+- Heart failure is usually treated with diuretics, which makes the person pass more urine
+- Patients must avoid casual use of day-to-day medicines like pain killers
+- The only pain killer that is safe in heart failure is paracetamol
+- Avoid nutritional supplements or food stuff that contain high sodium
+- Sodium is hygroscopic (holds water around it) — makes heart failure worse
+- Simple things like nasal drops can worsen heart failure
+- "All heart-failure patients must get a green signal from their cardiologist for every medicine that they consume, including the everyday ones"
+
+TREATMENT OPTIONS:
+- Defects in valves can be controlled with surgery
+- Bypass surgery can solve problems of blockage of blood supply
+- For cardiomyopathy (heart muscle weakened by virus/alcohol), a special pacemaker called CRT (BV pacemaker) is implanted which improves heart failure to a great extent
+- When heart failure is irreversible and other treatments are not useful, patient is considered for heart transplantation — "beginning to pick up in our country and will be one of the most important cardiac treatments in the years to come"
+- Artificial heart is on the horizon for end-stage heart failure
+
+LIVING WITH HEART FAILURE:
+- Salt: not more than 2-5g/day (1 tsp = 6 gm)
+- Water: avoid excess water and liquids (they strain the heart)
+- Regular cardiovascular exercises to strengthen the heart
+- Avoid physical activities like pushing/pulling heavy objects, lifting heavy weights
+- Abstain from smoking and alcohol
+- Maintain a daily weight chart (to keep a check on fluid accumulation)
+- Better management of high blood pressure, cholesterol, diabetes, kidney failures, anaemia and thyroid
+
+---
+<!-- Source: Doc warns of sudden cardiac deaths in youths.jpg -->
+# SUDDEN CARDIAC DEATH IN YOUTH:
+
+- "Recent research has shown that sudden cardiac death, also called SCD, is far more prevalent among young athletes than previously believed. Though it can strike those who have a sedentary lifestyle, the risk can go up by three times in competitive athletes"
+- Sudden cardiac arrest in a young person usually stems from a structural defect in the heart or a problem with its electrical circuitry
+- The most frequent cause, accounting for about 40% of all cases, is hypertrophic cardiomyopathy, or HCM, a thickening of the heart muscle
+- While HCM is genetic, excess training in high level athletes leads to 'athlete's heart' condition similar to HCM
+- "The challenge is that those who are at risk are hard to spot, as warning signs like dizziness and shortness of breath can be rare or dismissed by young athletes used to overworking themselves"
+- Electrocardiogram (ECG) can detect HCM and other potential causes of heart trouble by looking for abnormal electrical signalling in the heart
+- Though ECGs are not as thorough as imaging tests like an echocardiogram, which shows a 3-D view of the heart, they are cheaper and easier to conduct on a wider basis
+
+# ENDURANCE TESTS & ENVIRONMENTAL CONDITIONS:
+
+- "Endurance tests also need be tailored as per the weather conditions, so as to ensure that candidates can go through it without risking their lives"
+- "It is unscientific and inhuman to make youngsters sprint with the mercury pushing 40 degrees and humidity touching 90%"
+- Dehydration after prolonged waiting periods before physical tests can lead to cardiac arrhythmia and sudden death
+
+---
+<!-- Source: Life Lessons.transcript.txt -->
+# PERSONAL PHILOSOPHY & LIFE LESSONS
+
+**Education and Professional Success:**
+- "If your homework is well done, you can handle anything" — lesson from school that guides his approach to difficult cases and presentations
+- Attributes professional success to his teachers at Modern High School (Marathi medium, Pune)
+- Success in handling tricky cases and difficult presentations comes from thorough homework and preparation
+
+**Communication Skills:**
+- Oratory skills developed through elocution competitions in school
+- English language proficiency developed despite Marathi-medium schooling, credited to teacher VS Deshpande
+- Teacher encouraged reading beyond textbooks — English movies and literature — to discover "true and fundamental lessons of life"
