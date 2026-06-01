@@ -31,6 +31,7 @@ SUPPORTED = {
     "audio": [".mp3", ".m4a", ".wav", ".aac"],
     "text":  [".txt", ".md"],
     "pdf":   [".pdf"],
+    "image": [".jpg", ".jpeg", ".png", ".tiff", ".bmp"],
 }
 
 client = anthropic.Anthropic()
@@ -81,6 +82,27 @@ def transcribe(audio_path):
             )
 
 
+def ocr_image(image_path):
+    print(f"  Running OCR on {os.path.basename(image_path)}...")
+    try:
+        from PIL import Image
+        import pytesseract
+        Image.MAX_IMAGE_PIXELS = None  # disable decompression bomb check
+        img = Image.open(image_path)
+        # Resize very large images to speed up OCR
+        max_dim = 4000
+        if max(img.width, img.height) > max_dim:
+            ratio = max_dim / max(img.width, img.height)
+            img = img.resize((int(img.width * ratio), int(img.height * ratio)), Image.LANCZOS)
+        # Convert to RGB if needed
+        if img.mode not in ('RGB', 'L'):
+            img = img.convert('RGB')
+        text = pytesseract.image_to_string(img, lang='eng')
+        return text.encode('utf-8', errors='ignore').decode('utf-8')
+    except ImportError:
+        raise RuntimeError("Install Pillow and pytesseract: pip3 install pillow pytesseract")
+
+
 def extract_pdf(pdf_path):
     print(f"  Extracting text from {os.path.basename(pdf_path)}...")
     try:
@@ -101,7 +123,7 @@ def get_raw_text(filepath):
     # Return cached transcript if it exists
     if os.path.exists(transcript_path):
         print(f"  Using cached transcript: {os.path.basename(transcript_path)}")
-        return open(transcript_path).read()
+        return open(transcript_path, encoding='utf-8', errors='ignore').read()
 
     if ext in SUPPORTED["video"]:
         audio = extract_audio(filepath)
@@ -109,6 +131,8 @@ def get_raw_text(filepath):
         os.remove(audio)
     elif ext in SUPPORTED["audio"]:
         text = transcribe(filepath)
+    elif ext in SUPPORTED["image"]:
+        text = ocr_image(filepath)
     elif ext in SUPPORTED["pdf"]:
         text = extract_pdf(filepath)
     elif ext in SUPPORTED["text"]:
@@ -117,7 +141,7 @@ def get_raw_text(filepath):
         raise ValueError(f"Unsupported file type: {ext}")
 
     # Save transcript for future reference
-    with open(transcript_path, "w") as f:
+    with open(transcript_path, "w", encoding='utf-8', errors='ignore') as f:
         f.write(text)
     print(f"  Transcript saved: {os.path.basename(transcript_path)}")
     return text
@@ -133,11 +157,13 @@ Below is a transcript or document from Dr. Hiremath (source: {filename}).
 
 Your job:
 1. Extract ONLY statements, positions, recommendations, and quotes that are clearly from Dr. Hiremath
-2. Ignore host questions, filler words, unrelated conversation
-3. Organise them under appropriate section headings (e.g. DIET, EXERCISE, CHOLESTEROL, HEART ATTACK PREVENTION, MEDICATIONS, LIFESTYLE, etc.)
-4. Use the same bullet-point format as the existing knowledge base
-5. Do NOT duplicate content already in the knowledge base
-6. If Dr. Hiremath uses a memorable phrase or quote, preserve it in quotes
+2. IMPORTANT: Extract ONLY English text — ignore any Marathi, Hindi, or other non-English content entirely
+3. Ignore host questions, filler words, unrelated conversation, and advertisements
+4. Organise them under appropriate section headings (e.g. DIET, EXERCISE, CHOLESTEROL, HEART ATTACK PREVENTION, MEDICATIONS, LIFESTYLE, etc.)
+5. Use the same bullet-point format as the existing knowledge base
+6. Do NOT duplicate content already in the knowledge base
+7. If Dr. Hiremath uses a memorable phrase or quote, preserve it in quotes
+8. If the source is mostly non-English with no meaningful English content, return: SKIP
 
 Existing knowledge base (do not duplicate):
 ---
@@ -193,7 +219,7 @@ def main():
         f for f in os.listdir(MEDIA_DIR)
         if not f.startswith(".") and f not in processed
         and os.path.splitext(f)[1].lower() in
-            SUPPORTED["video"] + SUPPORTED["audio"] + SUPPORTED["text"] + SUPPORTED["pdf"]
+            SUPPORTED["video"] + SUPPORTED["audio"] + SUPPORTED["text"] + SUPPORTED["pdf"] + SUPPORTED["image"]
     ]
 
     if not files:
@@ -211,6 +237,10 @@ def main():
                 print(f"  ⚠ Very little text extracted — skipping")
                 continue
             new_knowledge = extract_knowledge(raw_text, filename)
+            if new_knowledge.strip() == 'SKIP':
+                print(f"  ⚠ No English content found — skipping")
+                mark_processed(filename)
+                continue
             append_to_knowledge(new_knowledge, filename)
             mark_processed(filename)
 

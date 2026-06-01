@@ -825,6 +825,8 @@ function formatMessage(text) {
 }
 
 function inlineFormat(text) {
+  // Strip emojis
+  text = text.replace(/[\u{1F000}-\u{1FFFF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F300}-\u{1F9FF}\u{FE00}-\u{FE0F}\u{1FA00}-\u{1FA9F}]/gu, '').trim();
   return text
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.+?)\*/g, '<em>$1</em>');
